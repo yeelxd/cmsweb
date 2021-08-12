@@ -56,7 +56,7 @@
 		
 
       </ul>
-      <form class="navbar-form navbar-left" role="search" name="search_form" method="post">
+      <form class="navbar-form navbar-right" role="search" name="search_form" method="post">
 		<div class="form-group input-group">
 		  <input type="text" class="form-control" name="search_header" placeholder="搜索...">
 		  <span class="input-group-btn">
@@ -66,10 +66,12 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
       	<% if(isEmpty(session.session_user)){ %>
+		  	<!-- 注释掉暂时不需要用户登录
 			<li><a href="${BASE_PATH }oauth2/login.html?loin_type=baidu" class="navbar-brand" ><img alt="Brand" src="${BASE_PATH }static/oauth2/baidu_login.png"></a></li>
 			<li><a href="${BASE_PATH }oauth2/login.html?loin_type=qq" class="navbar-brand" ><img alt="Brand" src="${BASE_PATH }static/oauth2/qq_login.png"></a></li>
 			<li><a href="${BASE_PATH }front/login.html">登录</a></li>
 			<li class="${'regist'==folders_selected!''?'active':''}"><a href="${BASE_PATH }front/regist.html" >注册</a></li>
+			 -->
 		<% } else { %>
 			<li class="${'personhome'==folders_selected!''?'active':''}"><a href="${BASE_PATH }front/person.html" id="myhome" >我的空间</a></li>
 			<li class="${'message'==folders_selected!''?'active':''}"><a href="${BASE_PATH }front/message.html" id="mymessage" >我的消息</a></li>

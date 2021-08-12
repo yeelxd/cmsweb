@@ -8,7 +8,7 @@ jfinal cms
 > 5. jfinal cms交流群：568909653。 文档见doc/jfinal cms文档.docx
 
 * 管理地址：http://${ip:port}/${project_name}/admin
-* 测试账号: admin/admin123 或 test/123456
+* 测试账号: admin/lxdadmin8899 或 test/123456
 
 平台部署和配置说明
 ------------------------

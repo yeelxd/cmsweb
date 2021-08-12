@@ -2,6 +2,7 @@ package com.jflyfox.component.beelt;
 
 import java.util.Date;
 
+import com.jfinal.log.Log;
 import com.jflyfox.jfinal.base.BaseModel;
 import com.jflyfox.jfinal.template.TemplateFunctions;
 import com.jflyfox.modules.admin.folder.FolderService;
@@ -17,6 +18,8 @@ import com.jflyfox.util.StrUtils;
 import com.jflyfox.util.extend.HtmlUtils;
 
 public class BeeltFunctions extends TemplateFunctions {
+
+	private static final Log log = Log.getLog(BeeltFunctions.class);
 
 	private static FileUploadService uploadSvc = new FileUploadService();
 

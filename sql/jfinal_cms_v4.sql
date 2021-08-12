@@ -13,6 +13,9 @@ File Encoding         : 65001
 Date: 2017-01-22 00:21:07
 */
 
+CREATE DATABASE `cmsdbs` CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE cmsdbs;
+
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
