@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `sys_department` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='部门';
 
--- 正在导出表  cmsdbs.sys_department 的数据：~8 rows (大约)
+-- 正在导出表  cmsdbs.sys_department 的数据：~3 rows (大约)
 /*!40000 ALTER TABLE `sys_department` DISABLE KEYS */;
 INSERT INTO `sys_department` (`id`, `parent_id`, `name`, `code`, `sort`, `linkman`, `linkman_no`, `remark`, `update_time`, `update_id`, `create_time`, `create_id`) VALUES
 	(1, 0, '系统承建单位', NULL, 99, 'system', '15888888888', NULL, '2016-06-06 06:06:06', 1, '2016-06-06 06:06:06', 1),
@@ -184,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `sys_file_upload` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COMMENT='文件上传记录';
 
--- 正在导出表  cmsdbs.sys_file_upload 的数据：~8 rows (大约)
+-- 正在导出表  cmsdbs.sys_file_upload 的数据：~45 rows (大约)
 /*!40000 ALTER TABLE `sys_file_upload` DISABLE KEYS */;
 INSERT INTO `sys_file_upload` (`id`, `name`, `path`, `factpath`, `ext`, `originalname`, `type`, `size`, `remark`, `business_type`, `update_time`, `update_id`, `create_time`, `create_id`) VALUES
 	(1, '20210811_175700_937162.jpg', '/jflyfox/project/roll_image/20210811_175700_937162.jpg', 'C:/WorkCenter/Projects/ACommon/Collect/GitHub/cmsweb/src/main/webapp/jflyfox/project/roll_image/20210811_175700_937162.jpg', 'jpg', '1.jpg', 2, 157571, NULL, 1, '2021-08-11 17:57:00', 1, '2021-08-11 17:57:00', 1),
@@ -247,9 +247,9 @@ CREATE TABLE IF NOT EXISTS `sys_log` (
   `create_time` varchar(64) NOT NULL COMMENT '创建时间',
   `create_id` int(11) DEFAULT '0' COMMENT '创建者',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COMMENT='日志';
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COMMENT='日志';
 
--- 正在导出表  cmsdbs.sys_log 的数据：~9 rows (大约)
+-- 正在导出表  cmsdbs.sys_log 的数据：~35 rows (大约)
 /*!40000 ALTER TABLE `sys_log` DISABLE KEYS */;
 INSERT INTO `sys_log` (`id`, `log_type`, `oper_object`, `oper_table`, `oper_id`, `oper_type`, `oper_remark`, `create_time`, `create_id`) VALUES
 	(1, 2, '用户管理', 'sys_user', 1, '登入', '', '2021-08-11 15:48:07', 1),
@@ -285,7 +285,16 @@ INSERT INTO `sys_log` (`id`, `log_type`, `oper_object`, `oper_table`, `oper_id`,
 	(31, 2, '用户管理', 'sys_user', 1, '登入', '', '2021-08-12 17:26:56', 1),
 	(32, 2, '用户管理', 'sys_user', 1, '登出', '', '2021-08-12 17:42:01', 1),
 	(33, 2, '用户管理', 'sys_user', 1, '登入', '', '2021-08-12 17:42:41', 1),
-	(34, 2, '用户管理', 'sys_user', 1, '登入', '', '2021-08-12 18:32:07', 1);
+	(34, 2, '用户管理', 'sys_user', 1, '登入', '', '2021-08-12 18:32:07', 1),
+	(35, 2, '用户管理', 'sys_user', 1, '登出', '', '2021-08-13 08:36:05', 1),
+	(36, 2, '用户管理', 'sys_user', 1, '登入', '', '2021-08-13 08:44:04', 1),
+	(37, 2, '用户管理', 'sys_user', 1, '登出', '', '2021-08-13 08:45:21', 1),
+	(38, 2, '用户管理', 'sys_user', 4, '登入', '', '2021-08-13 08:45:43', 4),
+	(39, 2, '用户管理', 'sys_user', 4, '登出', '', '2021-08-13 08:47:00', 4),
+	(40, 2, '用户管理', 'sys_user', 1, '登入', '', '2021-08-13 08:47:11', 1),
+	(41, 2, '用户管理', 'sys_user', 1, '登出', '', '2021-08-13 08:49:25', 1),
+	(42, 2, '用户管理', 'sys_user', 4, '登入', '', '2021-08-13 08:49:35', 4),
+	(43, 2, '用户管理', 'sys_user', 1, '登入', '', '2021-08-13 08:50:25', 1);
 /*!40000 ALTER TABLE `sys_log` ENABLE KEYS */;
 
 -- 导出  表 cmsdbs.sys_menu 结构
@@ -352,10 +361,12 @@ CREATE TABLE IF NOT EXISTS `sys_role` (
   `create_time` varchar(64) DEFAULT NULL COMMENT '创建时间',
   `create_id` int(11) DEFAULT '0' COMMENT '创建者',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='角色';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='角色';
 
--- 正在导出表  cmsdbs.sys_role 的数据：~0 rows (大约)
+-- 正在导出表  cmsdbs.sys_role 的数据：~1 rows (大约)
 /*!40000 ALTER TABLE `sys_role` DISABLE KEYS */;
+INSERT INTO `sys_role` (`id`, `name`, `status`, `sort`, `remark`, `create_time`, `create_id`) VALUES
+	(2, '站点维护角色', 1, 10, '站点内容维护', '2021-08-13 08:32:49', 1);
 /*!40000 ALTER TABLE `sys_role` ENABLE KEYS */;
 
 -- 导出  表 cmsdbs.sys_role_menu 结构
@@ -365,10 +376,24 @@ CREATE TABLE IF NOT EXISTS `sys_role_menu` (
   `roleid` int(11) NOT NULL COMMENT '角色id',
   `menuid` int(11) NOT NULL COMMENT '菜单id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色和菜单关联';
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COMMENT='角色和菜单关联';
 
--- 正在导出表  cmsdbs.sys_role_menu 的数据：~0 rows (大约)
+-- 正在导出表  cmsdbs.sys_role_menu 的数据：~14 rows (大约)
 /*!40000 ALTER TABLE `sys_role_menu` DISABLE KEYS */;
+INSERT INTO `sys_role_menu` (`id`, `roleid`, `menuid`) VALUES
+	(15, 2, 21),
+	(16, 2, 18),
+	(17, 2, 8),
+	(18, 2, 16),
+	(19, 2, 17),
+	(20, 2, 9),
+	(21, 2, 19),
+	(22, 2, 12),
+	(23, 2, 15),
+	(24, 2, 20),
+	(25, 2, 13),
+	(26, 2, 10),
+	(27, 2, 11);
 /*!40000 ALTER TABLE `sys_role_menu` ENABLE KEYS */;
 
 -- 导出  表 cmsdbs.sys_user 结构
@@ -394,13 +419,13 @@ CREATE TABLE IF NOT EXISTS `sys_user` (
   `create_time` varchar(64) DEFAULT NULL COMMENT '创建时间',
   `create_id` int(11) DEFAULT '0' COMMENT '创建者',
   PRIMARY KEY (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='用户';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='用户';
 
 -- 正在导出表  cmsdbs.sys_user 的数据：~3 rows (大约)
 /*!40000 ALTER TABLE `sys_user` DISABLE KEYS */;
 INSERT INTO `sys_user` (`userid`, `username`, `password`, `realname`, `departid`, `usertype`, `state`, `thirdid`, `endtime`, `email`, `tel`, `address`, `title_url`, `remark`, `theme`, `back_site_id`, `create_site_id`, `create_time`, `create_id`) VALUES
 	(1, 'admin', 'MjOgSuNJActX1orE0zo6Lw==', '系统管理员', 1, 1, 10, NULL, NULL, '545798731@qq.com', '13913163260', NULL, NULL, '专业服务，精益求精，客户至上！', 'flat', 5, 1, '2016-06-06 06:06:06', 1),
-	(3, 'test@123.com', 'EY3JNDE7nu8=', 'lxdtest', 2, 3, 2, NULL, NULL, 'test@123.com', NULL, NULL, NULL, NULL, 'default', 0, 2, '2021-08-11 18:36:03', 1);
+	(4, 'siteadmin', 'dRv9FT/BFqYPwTmcNSnrRA==', '站点管理员', 2, 2, 2, NULL, NULL, 'site@admin.com', '13900006666', NULL, NULL, NULL, 'inverse', 0, 2, '2021-08-13 08:39:22', 1);
 /*!40000 ALTER TABLE `sys_user` ENABLE KEYS */;
 
 -- 导出  表 cmsdbs.sys_user_role 结构
@@ -410,10 +435,12 @@ CREATE TABLE IF NOT EXISTS `sys_user_role` (
   `userid` int(11) NOT NULL COMMENT '用户id',
   `roleid` int(11) NOT NULL COMMENT '角色id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户和角色关联';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='用户和角色关联';
 
 -- 正在导出表  cmsdbs.sys_user_role 的数据：~0 rows (大约)
 /*!40000 ALTER TABLE `sys_user_role` DISABLE KEYS */;
+INSERT INTO `sys_user_role` (`id`, `userid`, `roleid`) VALUES
+	(2, 4, 2);
 /*!40000 ALTER TABLE `sys_user_role` ENABLE KEYS */;
 
 -- 导出  表 cmsdbs.tb_advice_feedback 结构
@@ -470,7 +497,7 @@ CREATE TABLE IF NOT EXISTS `tb_article` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4253 DEFAULT CHARSET=utf8 COMMENT='文章';
 
--- 正在导出表  cmsdbs.tb_article 的数据：~174 rows (大约)
+-- 正在导出表  cmsdbs.tb_article 的数据：~36 rows (大约)
 /*!40000 ALTER TABLE `tb_article` DISABLE KEYS */;
 INSERT INTO `tb_article` (`id`, `folder_id`, `title`, `content`, `count_view`, `count_comment`, `type`, `status`, `is_comment`, `is_recommend`, `sort`, `jump_url`, `image_url`, `image_net_url`, `file_url`, `file_name`, `approve_status`, `publish_time`, `publish_user`, `start_time`, `end_time`, `update_time`, `create_time`, `create_id`) VALUES
 	(1, 1, '门头沟', '<p>门头沟</p>', 122, 123, 12, '2', 1, 1, 1, NULL, 'download/image_url/20150529_102007_298104.jpg', NULL, NULL, NULL, 10, '2014-03-05', '系统管理员', '2015-01-29', '2015-01-23', '2015-01-28 17:29:55', '2015-01-28', 1),
@@ -489,7 +516,7 @@ INSERT INTO `tb_article` (`id`, `folder_id`, `title`, `content`, `count_view`, `
 	(354, 90, '免责声明', '<p>门头沟信息网（http://www.jflyfox.com/mtg以下简称“本网站”）是由个人承建的为人民服务的门头沟信息网站。</p><p><br/></p><p>门头沟信息网主要提供了全面的生活，新闻，美食，旅游、教育等各个方面的关于门头沟的资讯。</p><p><br/></p><p>请用户使用本网站前仔细阅读本法律声明。您一旦使用本网站则表明您已明知并接受这些条款。用户必须按照法律法规的规定和本声明的要求使用本网站的信息和服务，否则本网站将依法追究有关当事人的法律责任。</p><p><br/></p><p><strong>一、知识产权</strong><br/></p><p>域名、标识及专有名称</p><p>本网站所使用的www.jflyfox.com、Logo等专有标识，未经网站所有者许可，任何人不得使用。</p><p><br/></p><p>版权</p><p>本网站包含的所有内容（包括但不限于：文本、图形、图片、视像及声音内容、LOGO标识、版面设计、专栏目录与名称、内容分类）的所有权归网站承办人所有。</p><p><br/></p><p>本网站的内容和软件均受《中华人民共和国著作权法》及其它相关法律的保护。任何单位或个人将本网站提供的内容与服务用于商业、盈利、广告性等目的时，需征得本网站承办人许可；将本网站提供的内容与服务用于非商业用途时，应遵守著作权法以及其他相关法律的规定，不得侵犯网站所有者及相关权利人的权益。</p><p><br/></p><p>版权异议</p><p>如权利人认为本网站内容中所涉及的文字作品、图片和音视频资料（以下简称“作品”），侵犯其著作权的，请及时书面通知本网站，本网站将依法删除被指侵权的作品或断开相应的链接；但权利人不能出示有效身份证明、著作权权属证明及侵权情况证明的，视为未提出异议。因权利人的通知导致本网站错误删除作品，或者错误断开与作品的链接的，本网站不承担任何责任。</p><p><br/></p><p><strong>二、用户信息</strong></p><p>信息采集</p><p>当用户浏览本网站时，本网站的系统将自动收集用户的IP地址及网站浏览信息。这些信息有助于我们在整体基础上评估我们的网站浏览者以及用户如何使用、浏览我们的网站，包括浏览者和用户对每一网页的访问次数、频率和浏览时间。通过收集上述信息，我们将进行流量统计，从而改进网站的管理和服务。</p><p><br/></p><p>信息使用</p><p>用户向本网站提供的个人信息将可能用于下列用途：</p><p>（1）核实用户身份，并提供相应的服务；</p><p>（2）用于编制有关网站使用的流量统计数据；</p><p>（3）通过发送电子邮件或以其它方式，告知用户相关信息。</p><p><br/></p><p>在未得到用户许可前，本网站不会将用户的任何个人信息提供给任何第三方，但发生以下事由的除外：</p><p>（1）按照本网站制订的规则和程序，本网站有充分的理由相信已经获得用户的授权；</p><p>（2）按照中华人民共和国的法律、法规、政策等规范性法律文件规定，要求本网站提供的；</p><p>（3）不能归咎于本网站的客观情势，所导致的个人资料的公开；</p><p>（4）因不可抗力，所导致的个人资料的公开；</p><p>（5）由于用户自身过错，而导致的个人资料的公开；</p><p>（6）超出本网站使用的硬件和软件的技术能力范围，所导致的个人资料的公开；</p><p>（7）紧急情况下为维护用户个人或社会大众的隐私和安全的；</p><p>（8）为维护本网站的所有权及相关权利的。</p><p><br/></p><p>信息安全</p><p>本网站将对用户所提供的资料进行严格的管理及保护，并将使用相应的技术措施（例如设置服务器备份数据和对用户密码加密等），防止用户的个人资料丢失、被盗用或遭窜改。如因不可抗力或计算机病毒感染、黑客攻击等特殊原因，导致用户信息被破坏、泄密并受到损失的，本网站将采取必要措施尽力减少用户的损失，但本网站对此不承担任何责任。</p><p><br/></p><p>用户权利</p><p>用户可通过本网站的相关网页查看、更新并修改提供给本网站的个人信息，也可以要求本网站删除该信息。</p><p><br/></p><p><strong>三、免责</strong></p><p>本网站对本网站上所有由第三方提供的信息、内容和服务，不提供明示或暗示的担保。本网站对使用上述信息、内容和服务所造成的任何损失不承担责任，包括直接损失和间接损失。</p><p><br/></p>', 1, 0, 11, '1', 1, 2, 20, NULL, NULL, NULL, NULL, NULL, 10, '2015-05-26', '系统管理员', NULL, NULL, '2015-05-26 10:40:04', '2015-05-26 10:40:04', 1),
 	(355, 90, '广告服务', '<p>广告服务请通过以下方式联系：</p><p style="white-space: normal;">联系方式：qq(545798731)</p><p style="white-space: normal; box-sizing: border-box; padding: 0px; color: rgb(51, 51, 51); line-height: 22.8571px; background-color: rgb(255, 255, 255);"><a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=Og8ODw0DAg0JC3pLSxRZVVc" style="text-decoration-line: none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_02.png"/></a></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 10px; color: rgb(51, 51, 51); font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif; font-size: 14px; white-space: normal; padding: 0px; line-height: 22.8571434020996px; background-color: rgb(255, 255, 255);"><a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=allcU1tTW15dWiobG0QJBQc" style="box-sizing: border-box; color: rgb(51, 122, 183); text-decoration: none; background-color: transparent;"></a><br/></p>', 1, 0, 11, '1', 1, 2, 17, NULL, NULL, NULL, NULL, NULL, 10, '2015-05-26', '系统管理员', NULL, NULL, '2015-05-26 10:40:30', '2015-05-26 10:40:30', 1),
 	(360, 10, '光荣园', '<p><span>光荣园位于门头沟区光荣院，北邻门头沟区档案馆，依山傍水、交通便利。公园修建于2010年10月，占地面积6500平方米，其中绿地面积3500平方米。</span></p><p><span>绿地内建花岗岩步道270平方米，景观石2块，修建京西革命光荣墙1面，缅怀门头沟区战争年代的革命先驱。</span></p><p><span>目前工程主体已全部完工，它在为广大市民提供良好城市居住环境的同时，承载着弘扬门头沟区革命老区光荣传统、记载京西革命文化的重要使命，是青少年爱国主义教育基地。光荣园的修建得到全区人民的大力拥护和社会各界的普遍关注，接受社会捐助500万元。</span></p>', 2, 0, 11, '1', 1, 2, 10, NULL, 'jflyfox/mtg/article_image/20210812_090318_485697.jpg', NULL, NULL, NULL, 10, '2015-05-26', '系统管理员', NULL, NULL, '2015-05-26 12:28:42', '2015-05-26 12:28:42', 1),
-	(377, 5, '大峪第二小学', NULL, 0, 0, 11, '1', 1, 2, 10, NULL, 'jflyfox/mtg/article_image/20210812_173113_615316.jpg', NULL, NULL, NULL, 10, '2015-05-26', '系统管理员', NULL, NULL, '2015-05-26 13:58:32', '2015-05-26 13:58:32', 1),
+	(377, 5, '大峪第二小学', NULL, 1, 0, 11, '1', 1, 2, 10, NULL, 'jflyfox/mtg/article_image/20210812_173113_615316.jpg', NULL, NULL, NULL, 10, '2015-05-26', '系统管理员', NULL, NULL, '2015-05-26 13:58:32', '2015-05-26 13:58:32', 1),
 	(378, 5, '城子小学', NULL, 2, 0, 11, '1', 1, 2, 10, NULL, 'jflyfox/mtg/article_image/20210812_173104_451689.jpg', NULL, NULL, NULL, 10, '2015-05-26', '系统管理员', NULL, NULL, '2015-05-26 13:58:48', '2015-05-26 13:58:48', 1),
 	(2351, 231, '捐赠我们', '<p style="box-sizing: border-box; padding: 0px; color: rgb(51, 51, 51); line-height: 22.8571434020996px; white-space: normal; text-align: center; background-color: rgb(255, 255, 255);">支付宝捐赠二维码 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 微信捐赠二维码</p><p style="box-sizing: border-box; padding: 0px; color: rgb(51, 51, 51); line-height: 22.8571434020996px; white-space: normal; text-align: center; background-color: rgb(255, 255, 255);"><img src="http://ww1.sinaimg.cn/mw690/3fc7e281jw1eqec436tzwj2074074mxr.jpg" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; vertical-align: middle;"/>&nbsp; &nbsp;&nbsp;<img src="http://ww1.sinaimg.cn/mw690/3fc7e281jw1es3jr0k25xj20a50a5q3v.jpg" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; vertical-align: middle; line-height: 1.42857143; width: 256px; height: 256px;"/></p><p style="box-sizing: border-box; padding: 0px; color: rgb(51, 51, 51); line-height: 22.8571434020996px; white-space: normal; text-align: center; background-color: rgb(255, 255, 255);"><br/></p><br/><p><br/></p>', 0, 0, 11, '1', 1, 2, 19, NULL, NULL, NULL, NULL, NULL, 10, '2015-05-26', '系统管理员', NULL, NULL, '2015-05-26 10:39:11', '2015-05-26 10:39:11', 1),
 	(2352, 231, '关于我们', '<p style="white-space: normal; box-sizing: border-box; padding: 0px; color: rgb(51, 51, 51); line-height: 22.8571434020996px; background-color: rgb(255, 255, 255);"><span style="line-height: 22.8571434020996px;"></span></p><p>可通过如下方式联系我们：<br/></p><p>联系方式：qq(369191470)</p><p style="white-space: normal; box-sizing: border-box; padding: 0px; color: rgb(51, 51, 51); line-height: 22.8571434020996px; background-color: rgb(255, 255, 255);"><a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=_crKyc-LzszIzrmIiNealpQ" style="box-sizing: border-box; margin: 0px; padding: 0px; color: rgb(66, 139, 202); text-decoration: none; background: 0px 0px;"></a></p><p style="white-space: normal;"><a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=allcU1tTW15dWiobG0QJBQc" style="text-decoration: none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_02.png"/></a></p><p><br/></p>', 2, 0, 11, '1', 1, 2, 13, NULL, NULL, NULL, NULL, NULL, 10, '2015-05-26', '系统管理员', NULL, NULL, '2015-05-26 10:39:24', '2015-05-26 10:39:24', 1),
@@ -612,7 +639,7 @@ CREATE TABLE IF NOT EXISTS `tb_folder` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=268 DEFAULT CHARSET=utf8 COMMENT='目录';
 
--- 正在导出表  cmsdbs.tb_folder 的数据：~39 rows (大约)
+-- 正在导出表  cmsdbs.tb_folder 的数据：~27 rows (大约)
 /*!40000 ALTER TABLE `tb_folder` DISABLE KEYS */;
 INSERT INTO `tb_folder` (`id`, `parent_id`, `name`, `key`, `path`, `content`, `sort`, `status`, `type`, `jump_url`, `material_type`, `site_id`, `seo_title`, `seo_keywords`, `seo_description`, `update_time`, `update_id`, `create_time`, `create_id`) VALUES
 	(1, 0, '首页', 'home', '', '', 1, 1, 1, NULL, 102, 2, NULL, NULL, NULL, '2015-01-28 16:54:03', 0, '2015-01-30 13:24:58', 1),
@@ -759,7 +786,7 @@ CREATE TABLE IF NOT EXISTS `tb_image` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COMMENT='图片';
 
--- 正在导出表  cmsdbs.tb_image 的数据：~27 rows (大约)
+-- 正在导出表  cmsdbs.tb_image 的数据：~6 rows (大约)
 /*!40000 ALTER TABLE `tb_image` DISABLE KEYS */;
 INSERT INTO `tb_image` (`id`, `album_id`, `album_name`, `name`, `linkurl`, `cdnurl`, `image_url`, `image_net_url`, `ext`, `width`, `height`, `status`, `is_comment`, `is_recommend`, `sort`, `remark`, `publish_time`, `publish_user`, `update_time`, `update_id`, `create_time`, `create_id`) VALUES
 	(2, 1, '风景', '风景1', 'http://localhost:8888/cmsweb/jflyfox/photo/image/20210812_154719_951333.jpg', '', 'jflyfox/photo/image/20210812_154719_951333.jpg', NULL, 'jpg', '1190', '550', 1, 2, 2, 10, NULL, '2016-02-10', '系统管理员', '2016-02-10 00:41:10', 1, '2016-02-10 00:41:10', 1),
@@ -786,7 +813,7 @@ CREATE TABLE IF NOT EXISTS `tb_image_album` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='相册';
 
--- 正在导出表  cmsdbs.tb_image_album 的数据：~4 rows (大约)
+-- 正在导出表  cmsdbs.tb_image_album 的数据：~2 rows (大约)
 /*!40000 ALTER TABLE `tb_image_album` DISABLE KEYS */;
 INSERT INTO `tb_image_album` (`id`, `parent_id`, `name`, `remark`, `sort`, `status`, `update_time`, `update_id`, `create_time`, `create_id`) VALUES
 	(1, 0, '风景', NULL, 1, 1, '2016-02-10 00:28:19', 1, '2016-02-10 00:28:19', 1),
@@ -828,9 +855,9 @@ CREATE TABLE IF NOT EXISTS `tb_pageview` (
   `create_day` varchar(64) NOT NULL COMMENT '创建时间到天',
   `create_time` varchar(64) NOT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=utf8 COMMENT='访问量统计';
+) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=utf8 COMMENT='访问量统计';
 
--- 正在导出表  cmsdbs.tb_pageview 的数据：~25 rows (大约)
+-- 正在导出表  cmsdbs.tb_pageview 的数据：~28 rows (大约)
 /*!40000 ALTER TABLE `tb_pageview` DISABLE KEYS */;
 INSERT INTO `tb_pageview` (`id`, `ip`, `userid`, `create_day`, `create_time`) VALUES
 	(87, '127.0.0.1', 0, '2016-04-04', '2016-04-04 19:53:45'),
@@ -859,7 +886,8 @@ INSERT INTO `tb_pageview` (`id`, `ip`, `userid`, `create_day`, `create_time`) VA
 	(110, '0:0:0:0:0:0:0:1', 0, '2016-09-21', '2016-09-21 00:21:57'),
 	(111, '0:0:0:0:0:0:0:1', 0, '2021-08-11', '2021-08-11 15:46:11'),
 	(112, '0:0:0:0:0:0:0:1', 0, '2021-08-12', '2021-08-12 08:47:42'),
-	(113, '127.0.0.1', 0, '2021-08-12', '2021-08-12 15:43:40');
+	(113, '127.0.0.1', 0, '2021-08-12', '2021-08-12 15:43:40'),
+	(114, '0:0:0:0:0:0:0:1', 0, '2021-08-13', '2021-08-13 08:28:06');
 /*!40000 ALTER TABLE `tb_pageview` ENABLE KEYS */;
 
 -- 导出  表 cmsdbs.tb_site 结构
@@ -914,7 +942,7 @@ CREATE TABLE IF NOT EXISTS `tb_tags` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4748 DEFAULT CHARSET=utf8 COMMENT='标签';
 
--- 正在导出表  cmsdbs.tb_tags 的数据：~364 rows (大约)
+-- 正在导出表  cmsdbs.tb_tags 的数据：~365 rows (大约)
 /*!40000 ALTER TABLE `tb_tags` DISABLE KEYS */;
 INSERT INTO `tb_tags` (`id`, `article_id`, `tagname`, `create_time`, `create_id`) VALUES
 	(6, 343, '学校', '2015-05-24 23:26:54', 1),
@@ -1310,7 +1338,7 @@ CREATE TABLE IF NOT EXISTS `tb_video` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COMMENT='视频';
 
--- 正在导出表  cmsdbs.tb_video 的数据：~23 rows (大约)
+-- 正在导出表  cmsdbs.tb_video 的数据：~2 rows (大约)
 /*!40000 ALTER TABLE `tb_video` DISABLE KEYS */;
 INSERT INTO `tb_video` (`id`, `album_id`, `album_name`, `name`, `video_url`, `video_net_url`, `thumbnail`, `ext`, `resolution`, `status`, `is_comment`, `is_recommend`, `sort`, `remark`, `publish_time`, `publish_user`, `update_time`, `update_id`, `create_time`, `create_id`) VALUES
 	(6, 5, '娱乐', '娱乐5', 'jflyfox/video/video/20210812_183243_840724.mp4', NULL, 'http://icon.mobanwang.com/UploadFiles_8971/201408/2014082914282646.png', 'mp4', '', 1, 1, 2, 9, NULL, '2016-02-19', '系统管理员', '2016-02-19 17:32:50', 1, '2016-02-19 17:32:50', 1),
@@ -1333,7 +1361,7 @@ CREATE TABLE IF NOT EXISTS `tb_video_album` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='专辑';
 
--- 正在导出表  cmsdbs.tb_video_album 的数据：~6 rows (大约)
+-- 正在导出表  cmsdbs.tb_video_album 的数据：~2 rows (大约)
 /*!40000 ALTER TABLE `tb_video_album` DISABLE KEYS */;
 INSERT INTO `tb_video_album` (`id`, `parent_id`, `name`, `remark`, `sort`, `status`, `update_time`, `update_id`, `create_time`, `create_id`) VALUES
 	(5, 0, '娱乐', NULL, 10, 1, '2016-02-16 16:58:22', 1, '2016-02-16 16:58:22', 1),
