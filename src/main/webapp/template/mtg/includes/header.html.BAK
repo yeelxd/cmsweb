@@ -16,11 +16,14 @@
 		BASE_PATH:'${BASE_PATH }'
 	}
 	</script>
-
-
+	
+	<!-- IE兼容处理 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
 	<% include("/template/includes/jquery.html"){} %>
 	<script type="text/javascript" src="${BASE_PATH }template/mtg/includes/common_pack.js"></script>
-	<!--
+	<!-- 
 	<script type="text/javascript" src="${BASE_PATH }template/mtg/includes/common.js"></script>
 	 -->
 
@@ -31,14 +34,13 @@
 	 -->
 	<link rel="stylesheet" href="${BASE_PATH }static/front/home.min.css" type="text/css" media="screen, projection">
 
-	<!-- NewStyle lXD 20210824 -->
-	<!-- Vendor CSS Files -->
-	<link href="${BASE_PATH }template/mtg/includes/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="${BASE_PATH }template/mtg/includes/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-	<link href="${BASE_PATH }template/mtg/includes/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-	<link href="${BASE_PATH }template/mtg/includes/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-	<link href="${BASE_PATH }template/mtg/includes/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-	<!-- Template Main CSS File -->
-	<link href="${BASE_PATH }template/mtg/includes/assets/css/style.css" rel="stylesheet">
-
+	<!-- 百度统计 -->
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?1040d081eea13b44d84a4af639640d51";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>

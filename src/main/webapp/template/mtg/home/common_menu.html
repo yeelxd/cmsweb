@@ -25,23 +25,15 @@ var bodyContent = {
 <div class="container">
 
 	<div class="row">
-		<div class="col-md-12">	
-	
-		<div class="panel panel-default">
-			 <div class="panel-body" style="padding:0px;">
-			<ol class="breadcrumb" style="margin:0px;">
-			  <li><a href="${BASE_PATH }home.html">首页</a></li>
-			  <li class="active"><a href="${BASE_PATH }${flyfox.getMenu(folder.id)}">${folder.name }</a></li>
-			</ol>
-			</div>
+		<!-- TopPic -->
+		<div  class="thumbnail" style="padding:0px;margin-bottom:5px;">
+			<img width="100%" height="450" src="${BASE_PATH }jflyfox/mtg/article_image/20210821_115618_74360.jpg"/>
 		</div>
-	
-		</div>
+
 	</div>
 
 	<div class="row">
-	<!-- 文章 -->
-	<div class="col-md-8">	
+		<!-- 文章 -->
 		<div class="panel panel-default">
 		  <div class="panel-heading">
 			<h3 class="panel-title">${folder.name }</h3>
@@ -49,64 +41,6 @@ var bodyContent = {
 		  	 <!-- 文章列表 -->
 		 	 <% include("/template/mtg/includes/articlelist.html",{articlelist:page,defalutimg:defalutimg!''}){} %>
 		</div>
-	</div>
-	
-	<!-- 信息列表 -->
-	<div class="col-md-4">	
-			
-		<%  
-			if(noticeList != null && noticeList.~size > 0) {
-		%>
-		<div class="panel panel-default">
-		  <div class="panel-heading">
-			<h3 class="panel-title">公告</h3>
-		  </div>
-		  <div class="panel-body">
-	  		<%
-				for(item in noticeList){ 
-			%>
-			<p><span class="label label-info">${itemLP.index}</span> <a href="${item.url}" target="_blank">${item.content}</a></p>
-			<% 
-				}
-			%>
-		 </div>
-		</div>
-		<%
-			} 
-		%>
-		
-		<div class="panel panel-default">
-		  <div class="panel-heading">
-			<h3 class="panel-title">推荐标签<a class="more" href="${BASE_PATH }front/tags/all">更多</a></h3>
-		  </div>
-		  <div class="panel-body">
-			<%  
-					if(taglist != null && taglist.~size > 0) {
-			%>
-				<ul class="q-taglist clearfix">
-					<li title="标签"><span class="q-icon"></span></li>
-				<%
-					for(tagitem in taglist){ 
-				%>
-					<li class="q-tagitem">
-					<a class="a-tagitem" href="${BASE_PATH }front/tags/${tagitem.tagname}">${tagitem.tagname}</a>
-					</li>
-				<% 
-					}
-				%>
-				</ul>
-			<%
-			} 
-			%>
-		 </div>
-		</div>
-		
-		<!-- 推荐文章 -->
-		<%  include("/template/mtg/includes/recommend.html"){} %>
-		
-		<!-- 友情链接 -->
-		<%  include("/template/mtg/includes/friendly.html"){} %>
-	</div>
 	</div>
 
 </div>
